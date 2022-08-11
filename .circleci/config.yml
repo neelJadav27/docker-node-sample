@@ -4,4 +4,12 @@ workflows:
   version: 2.1
   pipeline:
     jobs:
-      - echo "hello world"
+      - test-helloworld
+
+jobs:
+  test-helloworld:
+    docker:
+      - image: alpine
+    - run:
+        name: running hello neel
+        command: echo "Neel"
