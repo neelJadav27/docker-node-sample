@@ -10,6 +10,8 @@ jobs:
   test-helloworld:
     docker:
       - image: alpine
-    - run:
-        name: running hello neel
-        command: echo "Neel"
+    steps:
+      - run:
+          name: running hello neel
+          command: echo "Neel"
+
