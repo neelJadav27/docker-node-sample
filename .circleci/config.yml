@@ -17,6 +17,7 @@ custom-img: &custom-img
 jobs:
   test-helloworld:
     <<: *custom-img
+    working_directory: /user/src/app
     steps:
       - run:
           name: starting app
