@@ -6,12 +6,15 @@ workflows:
     jobs:
       - test-helloworld
 
+node-img: &node-img
+  docker:
+    - image: node
+
 jobs:
   test-helloworld:
-    docker:
-      - image: alpine
+    <<: *node-img
     steps:
+      - checkout
       - run:
-          name: running hello neel
-          command: echo "Neel"
-
+          name: running the app
+          command: npm start
