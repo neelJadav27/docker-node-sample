@@ -6,15 +6,32 @@ workflows:
     jobs:
       - test-helloworld
 
-node-img: &node-img
+# apine-img: &apine-img
+#   docker:
+#     - image: apine
+
+custom-img: &custom-img
   docker:
-    - image: node
+    - image: jadavneel70/test:v1.0.0
 
 jobs:
   test-helloworld:
-    <<: *node-img
+    <<: *custom-img
     steps:
-      - checkout
       - run:
-          name: running the app
+          name: starting app
           command: npm start
+      # - run:
+      #     name: installing docker
+      #     command: apk add docker-cli
+      # - run:
+      #     name: pull image
+      #     command: docker pull jadavneel70/test:v1.0.0
+      # - run:
+      #     name: docker build
+      #     command: docker build -t sample jadavneel70/test:v1.0.0
+      # - setup_remote_docker:
+      #     docker_layer_caching: true
+      # - run:
+      #     name: docker run
+      #     command: docker run -it --rm --entrypoint bash jadavneel70/test:v1.0.0
